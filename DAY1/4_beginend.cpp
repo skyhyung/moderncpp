@@ -29,12 +29,24 @@ int main()
 
 
 	// C++20 스타일
-	auto p3 = std::range::begin(v); // <== C++20 부터는 강력권장(안전)
+//	auto p3 = std::range::begin(v); // <== C++20 부터는 강력권장(안전)
 
 	// 기존 begin 의 문제점
-	auto p4 = std::begin( std::vector<int>{1, 2, 3} ); // ok
+//	auto p4 = std::begin( std::vector<int>{1, 2, 3} ); // ok
 }
 
 
 
+
+
+// std::begin 의 원리
+
+// 컨테이너 버전
+template<typename T>
+auto begin(T& c) { return c.begin(); } // 결국 멤버 함수 호출
+
+// 배열 버전
+template<typename T, int N>
+auto begin(T(&arr)[N]) { return arr; } // 배열의 이름(주소)반환
+auto end(T(&arr)[N])  { return arr+N; } 
 
