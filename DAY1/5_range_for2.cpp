@@ -10,6 +10,15 @@ int main()
 	{
 		std::cout << n << std::endl;
 	}
+	// 위 코드를 컴파일러가 아래 처럼 수정합니다.
+	auto p1 = v.begin(); // 또는 std::begin(v)
+	auto p2 = v.end();
+
+	for (; p1 != p2; ++p1)
+	{
+		auto& n = *p1;
+		//------------------------------
+	}
 }
 
 
