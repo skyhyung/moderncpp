@@ -10,22 +10,48 @@ int main()
 {
 	Point3D p3d;
 
-	// ¸ğµç ¸â¹ö¸¦ ²¨³»°í ½Í´Ù.. util C++14
+	// ëª¨ë“  ë©¤ë²„ë¥¼ êº¼ë‚´ê³  ì‹¶ë‹¤.. util C++14
 	int x = p3d.x;
 	int y = p3d.y;
 	int z = p3d.z;
+
+	// C++17 ì˜ structural binding
+	auto [a, b, c] = p3d;	// auto a = p3d.x
+							// auto b = p3d.y
+							// auto c = p3d.z
+
+	auto [a, b] = p3d; // error. ê°¯ìˆ˜ê°€ ë§ì•„ì•¼ í•©ë‹ˆë‹¤.
+//	int  [a, b] = p3d; // error. auto ë§Œ ê°€ëŠ¥
+
+	int arr[3] = { 1,2,3 };
+	auto [a1, a2, a3] = arr; // ok. ë°°ì—´ë„ ê°€ëŠ¥
+
 
 
 	//-------------------------
 	std::map<std::string, std::string> m;
 
-	m["mon"] = "¿ù¿äÀÏ";
+	m["mon"] = "ì›”ìš”ì¼";
 
-	// mapÀº pair¸¦ º¸°üÇÕ´Ï´Ù.
+	// mapì€ pairë¥¼ ë³´ê´€í•©ë‹ˆë‹¤.
 	std::pair<std::string, std::string> p;
 	p.first = "tue";
-	p.second = "È­¿äÀÏ";
+	p.second = "í™”ìš”ì¼";
 	m.insert(p);
+
+	//-------------------
+	for (auto e : m)
+	{
+		// eëŠ” pair
+		std::string key   = e.first;
+		std::string value = e.second;
+	}
+
+	for (auto [key, value] : m)
+	{
+		// key, value ì‚¬ìš©
+	}
+
 
 }
 
