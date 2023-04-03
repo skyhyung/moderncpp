@@ -6,9 +6,15 @@ int main()
 {
 	std::vector<int> v = { 1,2,3,4,5 };
 
-	// ΐόΕλΐϋΐΞ for Ή®
+	// μ „ν†µμ μΈ for λ¬Έ
 	for (int i = 0; i < v.size(); i++)
 	{
+	}
+
+	// C++11 μ μƒλ΅μ΄ for λ¬Έ
+	for (int e : v)
+	{
+		std::cout << e << std::endl;
 	}
 }
 
