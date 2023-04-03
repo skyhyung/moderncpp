@@ -2,13 +2,6 @@
 #include <iostream>
 #include <exception>
 
-void foo() 
-{
-}
-void goo()// 3_noexcept - 14 page
-#include <iostream>
-#include <exception>
-
 // noexcept 의 용도
 // 1. 함수가 예외가 있는지 조사
 // 2. 함수가 예외가 없음을 알림.
@@ -45,19 +38,6 @@ int main()
 	decltype(foo()); //foo의 반환타입 과 같은 타입
 	noexcept(foo()); // 예외가 없는가 ?
 
-}
-
-
-
-
-
-{
-	if (1) // ½ÇÆÐ
-		throw std::bad_alloc();
-}
-
-int main()
-{
 }
 
 
