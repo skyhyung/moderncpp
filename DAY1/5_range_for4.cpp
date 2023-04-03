@@ -10,6 +10,17 @@ public:
 	auto begin() { return range.begin(); }
 	auto end() { return range.begin() + sz; }
 };
+
+template<typename T> class reverse_view
+{
+	T& range;
+public:
+	reverse_view(T& r) : range(r){}
+	auto begin() { return range.rbegin(); }
+	auto end() { return range.rend() ; }
+};
+
+
 int main()
 {
 	std::vector<int> v = { 1,2,3,4,5 };
