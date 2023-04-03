@@ -4,8 +4,10 @@
 struct Point3D
 {
 	int x, y, z;
-};
 
+	int* begin() { return &x; }
+	int* end()   { return &z + 1; } // past the end. ë ë‹¤ìŒ ë°˜í™˜
+};
 int main()
 {
 	Point3D p;
@@ -13,7 +15,7 @@ int main()
 	p.y = 20;
 	p.z = 30;
 
-	for (int n : p)  // µÉ±î¿ä ? µÇ°ÔÇÏ·Á¸é ÇÊ¿äÇÑ °ÍÀº ?
+	for (int n : p)  // ë ê¹Œìš” ? ë˜ê²Œí•˜ë ¤ë©´ í•„ìš”í•œ ê²ƒì€ ?
 		std::cout << n << std::endl; 
 
 }
