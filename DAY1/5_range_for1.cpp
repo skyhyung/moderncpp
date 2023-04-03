@@ -12,7 +12,9 @@ int main()
 	}
 
 	// C++11 의 새로운 for 문
-	for (int e : v)
+//	for (auto e : v)
+	for (auto& e : v)
+//	for (auto&& e : v)
 	{
 		std::cout << e << std::endl;
 	}
