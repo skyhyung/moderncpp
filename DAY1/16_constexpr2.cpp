@@ -25,4 +25,13 @@ int main()
 	const int c1 = Factorial(5); // 컴파일러마다 다름
 
 	constexpr int c2 = Factorial(5); // 컴파일 시간
+
+//	constexpr int c3 = 10;
+//	int* p = const_cast<int*>(&c3);
+//	*p3 = 10; // undefined ... 
+			   // 절대 사용하지 말라. 사용시 책임질수 없다.
 }
+
+// godbolt.org
+
+// 구글에서 "c++ constexpr library"
