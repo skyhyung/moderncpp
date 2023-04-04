@@ -13,6 +13,9 @@ int main()
 	// vector 사용하면 안되나요 ?  => 모든 요소가 힙에 놓이게 됩니다.
 	std::initializer_list<int> e = { 1,2,3,4,5 };
 
+	auto p = e.begin();
+	*p = 20; // error. 반복자로 값을 변경할수 없습니다.
+
 	// initializer_list는 함수인자로 사용하려고 만들었습니다.
 	// foo 에는 int 타입을 몇개라도 보낼수 있습니다.
 	foo({ 1,2,3 });
