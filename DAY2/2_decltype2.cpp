@@ -1,19 +1,34 @@
-// decltype 타입 추론 - 71page
+#include <complex>
+
 int main()
 {
-	int n = 10;
-	int& r = n;
-	const int c = 10;
-	int* p = &n;
+	int n1 = 10;
+	int x1[2] = { 1,2 };
+	std::complex<double> c1(1, 2);
 
-	// 규칙 1. () 안에 심볼의 이름만 있는 경우
-	// => 심볼의 선언을 보고, 타입을 결정
+	// C++11. 일관된 초기화(uniform initialization)
+	// => 모든 종류의 변수를 {}로 일관되게 초기화 가능
+	// => 흔히, 중괄호(brace init) 초기화 라고도 합니다.
+	int n2 = { 10 };
+	int x2[2] = { 1,2 };
+	std::complex<double> c2 = { 1, 2 };
 
-	decltype(n) d1; // int d1
-	decltype(r) d2; // int& d2		초기값 없으므로 error
-	decltype(c) d3; // const int d3 초기값 없으므로 error 
-	decltype(p) d4; // int* d4
+	int n3 { 10 };
+	int x3[2] { 1,2 };
+	std::complex<double> c3 { 1, 2 };
 
-	auto a = c;			// int a = c
-	decltype(c) d = c;	// const int d = c;
+	// direct initialization : =이 없는 초기화
+	// copy   initialization : =이 있는 초기화
 }
+
+
+
+
+
+
+
+
+
+
+
+
