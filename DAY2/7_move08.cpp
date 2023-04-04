@@ -17,7 +17,7 @@
 // 규칙 3. 사용자가 move 계열만 제공하면
 // => 컴파일러가 copy 계열 제공안함(정확히는 =delete 해버림)
 // => copy 가 필요한 함수를 사용하면 "컴파일 에러"
-// => 필요하면 "=delete"로 요청가능
+// => 필요하면 "=defaule"로 요청가능
 struct Object
 {
 	std::string name;
