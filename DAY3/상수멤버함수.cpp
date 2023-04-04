@@ -16,11 +16,19 @@ public:
 	{
 	}
 };
+
+void foo(const Point& pt) 
+{
+	pt.print();
+}
+
 int main()
 {
-	const Point pt;
+//	const Point pt;
+	Point pt;
 //	pt.x = 10;		// error. public 에 있지만 상수 이므로
 //	pt.set(10, 20);	// error. 
 	pt.print();		// error	
 					// 멤버 함수의 원리 : print(&pt)
+	foo(pt);
 }
