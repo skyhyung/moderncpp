@@ -22,7 +22,10 @@ int main()
 	Vector v4 = { 10 }; // C++11, copy   initialization
 
 	//----------------
-	foo(10); // ?
+	foo(10); // error
+	foo(Vector(10)); // ok
+	foo(Vector{ 10 }); // ok
+	foo({ 10 }); // error
 }
 
 
