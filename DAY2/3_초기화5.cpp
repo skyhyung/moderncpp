@@ -7,17 +7,15 @@ void hoo(std::string s) {}
 
 int main()
 {
-	// ¾Æ·¡ ÄÚµåÁß ¿¡·¯¸¦ Ã£¾Æ º¸¼¼¿ä.
-	std::vector<int> v1(10);  
-	std::vector<int> v2 = 10; 
-	goo(10); 
-
-	std::string s1("hello"); 
-	std::string s2 = "hello";
-
-	hoo("hello");
-
-
+	hoo("hello"); // ë˜ì•¼ í•©ë‹ˆë‹¤. .. ì˜ ë©ë‹ˆë‹¤.
+	std::string s1("hello");	// ok
+	std::string s2 = "hello";	// ok.  
+								// string(const char*) ìƒì„±ìëŠ”
+								// explicit ì•„ë‹˜.	
+	goo(10);	// ì•ˆë˜ëŠ”ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.. ì•ˆ ë©ë‹ˆë‹¤.
+	std::vector<int> v1(10);	// ok
+	std::vector<int> v2 = 10;	// error
+								// vector(int) ìƒì„±ìëŠ” explicit ì…ë‹ˆë‹¤
 }
 
 
