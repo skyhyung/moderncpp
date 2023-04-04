@@ -1,4 +1,4 @@
-// 1_ÃÊ±âÈ­10
+// 1_ì´ˆê¸°í™”10
 #include <iostream>
 #include <vector>
 
@@ -8,14 +8,17 @@ int main()
 	std::vector<int> v2{ 1,2,3,4,5 };
 
 
-	// ¾Æ·¡ 2ÁÙÀÇ Â÷ÀÌÁ¡Àº ?
-	std::vector<int> v3(10, 2);
-	std::vector<int> v4{10, 2};
+	// ì•„ë˜ 2ì¤„ì˜ ì°¨ì´ì ì€ ?
+	std::vector<int> v3(10, 2); // 10ê°œë¥¼ 2ë¡œ ì´ˆê¸°í™”
+	std::vector<int> v4{10, 2}; // 2ê°œë¥¼ 10, 2ë¡œ ì´ˆê¸°í™”
 
 
-	// ¾Æ·¡ ÄÚµå¿¡¼­ ¿¡·¯´Â ?
-	std::vector<int> v5 = 10;	
-	std::vector<int> v6 = {10}; 
+	// ì•„ë˜ ì½”ë“œì—ì„œ ì—ëŸ¬ëŠ” ?
+	std::vector<int> v5 = 10;	// error
+								// vector(int) ëŠ” explicit
+	std::vector<int> v6 = {10}; // ok
+								// vector(initializer_list)ëŠ”
+								// explicit ê°€ ì•„ë‹˜
 }
 
 
