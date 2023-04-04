@@ -20,12 +20,15 @@ public:
 		strcpy_s(name, strlen(c.name) + 1, c.name);
 		std::cout << "복사" << std::endl;
 	}
-
+	
+	/*
+	// Cat에 move 생성자가 없는데, 사용자가 std::move 를 사용했다
 	Cat(Cat&& c) : age(c.age), name(c.name)
 	{
 		c.name = nullptr;
 		std::cout << "이동" << std::endl;
 	}
+	*/
 };
 Cat foo()
 {
