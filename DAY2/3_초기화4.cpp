@@ -3,17 +3,23 @@ class Vector
 {
 	int sz;
 public:
-	Vector(int s) : sz(s) {}
+	// explicit ìƒì„±ì
+	// => direct ë§Œ ê°€ëŠ¥í•˜ê³  copy init ì€ í• ìˆ˜ ì—†ë‹¤.
+	// => C++98 ë¬¸ë²•
+	explicit Vector(int s) : sz(s) {}
 };
-void foo(Vector v) {} 				  
+
+// í•µì‹¬ : í•¨ìˆ˜ì˜ ì¸ì ì „ë‹¬ë„ "copy initialization" ì…ë‹ˆë‹¤.
+void foo(Vector v) {} // Vector v = 10				  
 
 int main()
 {
-	// ÀÎÀÚ°¡ ÇÑ°³ÀÎ »ı¼ºÀÚ°¡ ÀÖÀ¸¸é ¾Æ·¡ÀÇ Ç¥±â¹ıÀÌ °¡´ÉÇÕ´Ï´Ù.
-	Vector v1(10); 
-	Vector v2 = 10; 
-	Vector v3{ 10 };
-	Vector v4 = { 10 };
+	// ì¸ìê°€ í•œê°œì¸ ìƒì„±ìê°€ ìˆìœ¼ë©´ ì•„ë˜ì˜ í‘œê¸°ë²•ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+	Vector v1(10);	// C++98, direct initialization
+	Vector v2 = 10; // C++98, copy   initialization
+		
+	Vector v3{ 10 };    // C++11, direct initialization
+	Vector v4 = { 10 }; // C++11, copy   initialization
 
 	//----------------
 	foo(10); // ?
