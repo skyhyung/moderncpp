@@ -10,11 +10,11 @@ int main()
 {
 	Point pt(0, 0);
 
-	// 규칙 1. non-const reference 는  lvalue 만 가리킬수 있다
+	// 규칙 1. non-const lvalue reference 는  lvalue 만 가리킬수 있다
 	Point& r1 = pt;				// ok
 	Point& r2 = Point(0, 0);	// error
 
-	// 규칙 2. const reference 는  lvalue, rvalue 모두 가리킬수 있다
+	// 규칙 2. const lvalue reference 는  lvalue, rvalue 모두 가리킬수 있다
 	const Point& r3 = pt;			// ok
 	const Point& r4 = Point(0, 0);	// ok
 
