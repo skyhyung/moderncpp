@@ -11,8 +11,11 @@ int& f4(int& a) { return a; }
 // 2. 반환타입도 완벽히 돌려주기 위해 "decltype(auto)" 사용
 
 template<typename F, typename ... T>
-decltype(auto) chronometry(F f, T&& ... arg)
+decltype(auto) chronometry(F f, T&& ... arg) 
 {
+	// StopWatch sw; // 생성자에서 시간 기록하세요
+					 // 소멸자는 아래 함수 호출후에 호출됩니다.
+					 // 소멸자에서 수행시간 출력하면 됩니다.
 	return f(std::forward<T>(arg)... );
 }
 
