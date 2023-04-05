@@ -1,3 +1,6 @@
+#include <algorithm>
+#include <iostream>
+
 void Sort(int* x, int sz, bool(*cmp)(int, int) )
 {
 	for (int i = 0; i < sz - 1; i++)
