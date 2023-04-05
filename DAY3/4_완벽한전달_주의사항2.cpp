@@ -1,4 +1,4 @@
-// 9_¿Ïº®ÇÑÀü´Ş_ÁÖÀÇ»çÇ×
+// 9_ì™„ë²½í•œì „ë‹¬_ì£¼ì˜ì‚¬í•­
 #include <iostream>
 
 template<typename F, typename T>
@@ -13,13 +13,14 @@ void foo(int a, int b) {}
 
 int main()
 {
-	// ÇÔ¼ö¸¦ Á÷Á¢ È£Ãâ½Ã
-	// => ÀÎÀÚ¸¦ º¸°í ¾î´À ÇÔ¼öÀÎÁö Ã£À»¼ö ÀÖ´Ù.
+	// í•¨ìˆ˜ë¥¼ ì§ì ‘ í˜¸ì¶œì‹œ
+	// => ì¸ìë¥¼ ë³´ê³  ì–´ëŠ í•¨ìˆ˜ì¸ì§€ ì°¾ì„ìˆ˜ ìˆë‹¤.
 	foo();
 	foo(10);
 	foo(10, 20);
  
-	chronometry(foo, 10); // ?
+//	chronometry(foo, 10); // error. ì–´ëŠ fooì¸ì§€ ì•Œìˆ˜ ì—†ë‹¤.
+	chronometry(static_cast<void(*)(int)>(foo), 10); // ok
 }
 
 
