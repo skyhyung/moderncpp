@@ -13,6 +13,7 @@ f2(10);// ok
 // int&  : int 타입 lvalue만 받겠다는것
 // int&& : int 타입 rvalue만 받겠다는것
 // T&    : 임의 타입의 lvalue 만 받겠다는 것
+// T&&   :
 
 
 template<typename T> void f3(T& a)
@@ -39,6 +40,14 @@ int main()
 
 
 template<typename T> void f4(T&& a)
-{
-}
+{}
 
+int main()
+{
+	int n = 3;
+
+	// 1. 타입을 명시적으로 전달할때
+	f4<int>(? );	// T=?		T&&=?		f4(? a)
+	f4<int&>(? );	// T=?		T&&=?		f4(? a)
+	f4<int&&>(? );	// T=?		T&&=?		f4(? a)
+}
