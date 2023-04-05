@@ -1,15 +1,24 @@
+// github.com/codenuri/moderncpp,  DAY4.zip 
+
 #include <string>
 
-// ÀÎÀÚ·Î Àü´Ş¹ŞÀº °´Ã¼¸¦ ÀĞ±â¸¸ ÇÏ·Á°í ÇÕ´Ï´Ù.(in parameter)
-// ´ÙÀ½Áß ÁÁÀº °ÍÀº ?
-void f1(std::string s)        { }
-void f2(const std::string& s) { }
+// ì¸ìë¡œ ì „ë‹¬ë°›ì€ ê°ì²´ë¥¼ ì½ê¸°ë§Œ í•˜ë ¤ê³  í•©ë‹ˆë‹¤.(in parameter)
+// ë‹¤ìŒì¤‘ ì¢‹ì€ ê²ƒì€ ?
+void f1(std::string s)        { } // bad
+void f2(const std::string& s) { } // good
 
+// ì•„ë˜ ì½”ë“œëŠ” ì–´ë–¨ê¹Œìš” ?
+void f3(int n)		  { int a = n; } // good
+void f4(const int& n) { int a = n; } // bad
 
-void f3(int n)		  { int a = n; }
-void f4(const int& n) { int a = n; }
+// í•µì‹¬. in parameter ë¥¼ ë§Œë“¤ë•Œ(ì¸ìë¥¼ ì½ê¸°ë§Œ í•˜ëŠ” ê²½ìš°)
+// primitive type   : call by value
+// user define type : const &
+
 
 int main()
 {
-
+	int v = 10;
+	f3(v);
+	f4(v);
 }
