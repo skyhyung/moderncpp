@@ -34,8 +34,11 @@ void chronometry(F f, T&& arg)
 	// lvalue 를 (전달하면, arg를) lvalue 로 캐스팅하는 코드입니다(필요없는코드
 	//													컴파일러에의해 제거됨)
 
-	f(static_cast<T&&>(arg));
+//	f(static_cast<T&&>(arg));
+
+	f(std::forward<T>(arg)); // std::forward<> 가 위처럼 캐스팅하고 있습니다.
 }
+
 int main()
 {
 	int n = 0;
