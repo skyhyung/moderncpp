@@ -44,9 +44,14 @@ void foo(T&& arg)
 {
 	// 핵심 : T&& 가 rvalue reference 아니라고 기억하세요
 
-	std::move(arg); // arg 를 무조건 "?"  로 캐스팅
+	std::move(arg); // arg 를 무조건 "rvalue"  로 캐스팅
+					// static_cast<T안에레퍼런스제거후 &&>(arg)
 
-	std::forward<T>(arg); // arg 를
+	std::forward<T>(arg); // arg 에 전달된 인자에 따라 다른 캐스팅
+						// static_cast<T&&>(arg)
+						
+						// rvalue 를 보냈으면 rvalue 캐스팅
+						// lvalue 를 보냈으면 lvalue 캐스팅
 }
 foo(n);
 foo(10);
