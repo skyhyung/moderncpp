@@ -3,28 +3,40 @@
 #include <vector>
 #include <array>
 
-// ÇÙ½É : Setter ¸¸µé±â #2
+// í•µì‹¬ : Setter ë§Œë“¤ê¸° #2
 
 class Object
 {
 private:
 	std::string name;
 public:
-	// #1. ÀÎÀÚ°¡ non-const lvalue reference ÀÎ°æ¿ì
+	// #1. ì¸ìê°€ non-const lvalue reference ì¸ê²½ìš°
+	// => í•¨ìˆ˜ì•ˆì—ì„œ s ë¥¼ ë³€ê²½í•˜ê² ë‹¤ëŠ” ê²ƒ ( R/W )
 	void foo(std::string& s)
 	{
 
 	}
 
-	// #2. ÀÎÀÚ°¡ const reference ÀÎ °æ¿ì
+	// #2. ì¸ìê°€ const lvalue reference ì¸ ê²½ìš°
+	// =>í•¨ìˆ˜ ì•ˆì—ì„œ ì¸ìë¥¼ ì½ê¸°ë§Œ í•˜ê² ë‹¤ ( R )
 	void print_msg(const std::string& msg) const
 	{
 		std::cout << msg << std::endl;
 	}
 
-	// #3. Àü´Ş ¹ŞÀº ÀÎÀÚÀÇ °ªÀ» ÇÔ¼ö¿¡¼­¸¸ »ç¿ëÇÏ´Â °ÍÀÌ ¾Æ´Ï¶ó
-	//     ¸â¹ö µ¥ÀÌÅ¸µî¿¡ º¸°üÇÏ´Â °æ¿ì.
-	void set_name(const std::string& n) { name = n; }
+
+	// #3. ì „ë‹¬ ë°›ì€ ì¸ìì˜ ê°’ì„ í•¨ìˆ˜ì—ì„œë§Œ ì‚¬ìš©í•˜ëŠ” ê²ƒì´ ì•„ë‹ˆë¼
+	//     ë©¤ë²„ ë°ì´íƒ€ë“±ì— ë³´ê´€í•˜ëŠ” ê²½ìš°.
+	// => move ë¥¼ ì§€ì›í•˜ê¸° ìœ„í•´ì„œ 2ê°œë¥¼ ë§Œë“œì„¸ìš”
+	void set_name(const std::string& n)  {	name = n; 	}
+	void set_name(std::string&& n) { name = std::move(n); }
+
+	// ê²°êµ­ ì¸ìê°€ "std::string&&" ì˜ ì˜ë„ëŠ” move ì…ë‹ˆë‹¤
+
+	// ì•„ë˜ í•¨ìˆ˜ë¥¼ ìƒê°í•´ ë´…ì‹œë‹¤.
+	// => íƒ€ì…&& ì´ë¯€ë¡œ moveì˜ ì˜ë„ì¼í…ë°..
+	// => const ì´ë¯€ë¡œ move ë ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+	void foo(const std::string&& s) {} 
 };
 
 int main()
@@ -32,7 +44,8 @@ int main()
 	std::string s = "park";
 
 	Object p;
-	p.print_msg(s);
+	p.set_name(s);
+	p.set_name(std::move(s));
 }
 
 
