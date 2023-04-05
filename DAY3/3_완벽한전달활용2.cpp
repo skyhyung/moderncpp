@@ -10,13 +10,21 @@ public:
 	~Point() { std::cout << "~Point()" << std::endl; }
 	Point(const Point&) { std::cout << "copy ctor" << std::endl; }
 };
+
+void* operator new(std::size_t sz)
+{
+	std::cout << "new : " << sz << std::endl;
+	return malloc(sz);
+}
+
 int main()
 {
-	// ½º¸¶Æ® Æ÷ÀÎÅÍ
-	// 1. Á÷Á¢ °´Ã¼ »ı¼º
-	// ¾Æ·¡ ÄÚµå´Â µ¿Àû ¸Ş¸ğ¸®¸¦ ¸î¹ø ÇÒ´ç ÇÒ±î¿ä ?
+	// ìŠ¤ë§ˆíŠ¸ í¬ì¸í„°
+	// 1. ì§ì ‘ ê°ì²´ ìƒì„±
+	// ì•„ë˜ ì½”ë“œëŠ” ë™ì  ë©”ëª¨ë¦¬ë¥¼ ëª‡ë²ˆ í• ë‹¹ í• ê¹Œìš” ?
 	std::shared_ptr<Point> sp1(new Point(1,2));
 }
+
 
 
 
