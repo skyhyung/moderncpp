@@ -13,6 +13,8 @@ int main()
 	// "temporary  maturization"
 	Point&& r1 = Point(1, 2); // 임시객체에 이름을 부여해서
 								// 수명을 늘리는 작업
+//	Point pt2 = Point(1, 2);
 	int&& r2 = 10;	// literal 로만 존재하던 값을 위한 메모리를
 					// 할당해서 이름을 부여 한것
+//	int r2 = 10;
 }
