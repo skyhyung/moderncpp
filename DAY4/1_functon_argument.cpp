@@ -5,8 +5,8 @@
 
 // 인자로 전달받은 객체를 읽기만 하려고 합니다.(in parameter)
 // 다음중 좋은 것은 ?
-void f1(std::string s)        { } // bad
-void f2(const std::string& s) { } // good
+void f1(std::string s)        { } // bad. string 객체 복사
+void f2(const std::string& s) { } // good. const string 객체 참조 (근데 왜 const가 꼭 붙을까? std::string&는 안되나?)
 void f3(std::string_view s)   { } // best, C++17 부터
 
 // 아래 코드는 어떨까요 ?
