@@ -13,6 +13,11 @@ int main()
 	std::cout << typeid(a1).name() << std::endl;
 	std::cout << typeid(a2).name() << std::endl;
 
+
+	auto& r1 = v1[0]; // ok.. 
+	auto& r2 = v2[0]; // 5번에서 만든 
+					  // operator[] 는 BitProxy 의
+					  // 임시객체 반환
 	
 
 }
