@@ -1,23 +1,13 @@
 #include <iostream>
 
-// �Լ���ü�� const member function
-
-struct Plus
+// 0 ~9 사이의 난수를 반환하는 함수
+int urand()
 {
-	int operator()(int a, int b)
-	{
-		return a + b;
-	}
-};
-
-template<typename T> void foo(T f)
-{
-	int ret = f(1, 2);
+	return rand() % 10;
 }
 
 int main()
 {
-	Plus p;
-
-	foo(p);
+	for (int i = 0; i < 10; i++)
+		std::cout << urand() << std::endl;
 }
