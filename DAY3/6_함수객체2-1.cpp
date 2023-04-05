@@ -13,6 +13,13 @@ public:
 	}
 	int operator()()
 	{
+		if (bs.none())
+		{
+			if (recycle == true)
+				bs.set();
+			else
+				return -1;
+		}
 		int k = -1;
 
 		while (!bs.test(k = rand() % 10) );
