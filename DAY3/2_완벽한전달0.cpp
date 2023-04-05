@@ -6,16 +6,10 @@ void foo(int&& a)		{ std::cout << "int&&" << std::endl; }
 
 int main()
 {
-	int n = 10;
-	foo(n);		// int&
-	foo(10);	// int&&
-
-	int& r1 = n;
-	foo(r1);
-
-
 	int&& r2 = 10;
-	foo(r2);
+	foo(r2);	// int&,   r2는  lvalue 이므로
+	foo(static_cast<int&&>(r2));// int&&,  
+							// lvalue인 r2를 rvalue로 캐스팅
 }
 
 
