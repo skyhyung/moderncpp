@@ -18,6 +18,13 @@ int main()
 	std::cout << typeid(f1).name() << std::endl;
 	std::cout << typeid(f2).name() << std::endl;
 
+	
+	// 람다표현식으로 초기화된 f3 변수에는 
+	// 다른 람다 표현식을 담을수 없습니다.
+	// => 모두 다른 타입이므로!
+	auto f3 = [](int a, int b) { return a + b; };
+
+	f3 = [](int a, int b) { return a + b; }; // error
 }
 
 
