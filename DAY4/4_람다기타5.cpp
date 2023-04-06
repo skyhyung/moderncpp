@@ -1,10 +1,31 @@
-// 5_¶÷´ÙÇ¥Çö½Ä6
-// ¶÷´ÙÇ¥Çö½ÄÀº ÀÎÀÚ¸¦ ¹Ş´Â ¹æ¹ı - 143p ¾Æ·¡ ºÎºĞ
+#include <functional>
+
+int add(int a, int b) { return a + b; }
+
+class BigFO
+{
+	int x[32];
+public:
+	inline int operator()(int a, int b) // <== const ë©¤ë²„ í•¨ìˆ˜ì•„ë‹˜
+	{ 
+		x[0] = 10;
+		return a + b; 
+	}
+};
+// () ë¡œ í˜¸ì¶œê°€ëŠ¥í•œê²ƒ : ì¼ë°˜í•¨ìˆ˜, í•¨ìˆ˜ê°ì²´, ëŒë‹¤í‘œí˜„ì‹
+// foo ì„ ë§Œë“œëŠ” ìµœì„ ì˜ ì½”ë“œë¥¼ ìƒê°í•´ ë´…ì‹œë‹¤.
 
 int main()
 {
+	foo(&add);
+
 	foo([](int a, int b) { return a + b; });
 	foo([](int a, int b) { return a - b; });
+
+	foo(std::less<int>());
+
+	BigFO f;
+	foo(f);
 }
 
 
