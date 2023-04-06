@@ -24,9 +24,7 @@ int main()
 	std::sort(v.begin(), v.end(), std::less<int>() ); // C++98
 	std::sort(v.begin(), v.end(), std::less<int>{} ); // C++11
 	std::sort(v.begin(), v.end(), std::less{});   	  // C++17 부터 타입생략가능. 위에 3개다 같은 거임
-						          //less는 inline 함수인가? sort가 받은 함수를 inline으로 만들어주는가?
-							  // 아니면 {}가 inline으로 바꿔주는 건가?
-
+						          //less는 STL 구현을 보면 함수 객체이다 그러므로 inline
 
 	// 방법 4. 람다표현식 사용 - c++11 부터 가능
 	// 람다 표현식
