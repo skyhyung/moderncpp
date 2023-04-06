@@ -30,7 +30,7 @@ int main()
 	public:
 		CompilerGeneratedName(int a, int b) : v1(a), v2(b) {}
 
-		inline int operator()(int a) // const
+		inline int operator()(int a) // const 위의 mutable keyword는 기본적으로 삽입되는 const를 제거해 달라는 말.
 		{
 			v1 = 100; 
 			return a + v1 + v2;
