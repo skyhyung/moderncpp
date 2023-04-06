@@ -41,7 +41,7 @@ int main()
 	Object<int,  int>::foo();    // T, T
 	Object<int, short>::foo();   // int, short
 
-	Object<int, Object<double, char>::foo();
+	Object<int, Object<double, char>>::foo();
 								// T, Object<U, V>   나오게 해보세요
 }
 
