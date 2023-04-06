@@ -30,12 +30,12 @@ int main()
 	public:
 		CompilerGeneratedName(int a, int b) : v1(a), v2(b) {}
 
-		inline int operator()(int a) // const 위의 mutable keyword는 기본적으로 삽입되는 const를 제거해 달라는 말.
-		{
-			v1 = 100; 
-			return a + v1 + v2;
-		}
-	};
+		inline int operator()(int a) 	// const 위의 mutable keyword는 기본적으로 삽입되는 const를 제거해 달라는 말.
+		{				// const 가 있으면 상수 멤버 함수이고 
+			v1 = 100; 		// 상수 멤버 함수는 멤버 변수를 변경시키지 않는 멤버 함수를 나타낸다 ,상수 객체는 상수 함수만 부를 수 있기 때문이다.
+			return a + v1 + v2;	// 사용하는 이유는 상수 객체는 상수 멤버 함수만 부를 수 있기 때문이다.
+		}				// const Point pt(1, 2); 
+	};					// pt.print <- 여기서 print는 상수 멤버 함수라고 가정. 
 	auto f = CompilerGeneratedName(v1, v2); // <= 여기서 v1, v2는 
 											//    main 함수 지역변수!
 
