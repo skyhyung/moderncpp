@@ -7,7 +7,19 @@ int main()
 {
 	int v1 = 10, v2 = 10;
 
-	auto f = [v1, v2](int a) { v1 = 100; return a + v1 + v2; }; 
+	// 아래 람다 표현식의 "operator()" 는 상수 멤버 함수 입니다.
+//	auto f = [v1, v2](int a) { v1 = 100; return a + v1 + v2; }; 
+
+	// 아래 람다 표현식의 "operator()" 는 상수 멤버 함수가 아닙니다.
+	auto f = [v1, v2](int a) mutable { v1 = 100; return a + v1 + v2; };
+
+	f(0); // v1 = 100 이 실행되지만 main 의 v1이 아닙니다.
+
+	std::cout << v1 << std::endl; // 10
+
+	std::cout << sizeof(f) << std::endl; //  8
+
+
 
 	//-----------------------
 	// 위 코드를 보고 컴파일러가 만드는 코드는 아래 코드 입니다.
@@ -18,7 +30,7 @@ int main()
 	public:
 		CompilerGeneratedName(int a, int b) : v1(a), v2(b) {}
 
-		inline int operator()(int a) const
+		inline int operator()(int a) // const
 		{
 			v1 = 100; 
 			return a + v1 + v2;
