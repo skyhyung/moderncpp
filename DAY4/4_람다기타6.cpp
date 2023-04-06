@@ -21,6 +21,16 @@ int main()
 	int n2 = v2[1](1, 2); // -1
 }
 
+// Modern C++ Big3 : move, 완벽한 전달, lambda expression
+// => C++ 창시자가 뽑은 순위
+// => variadic template, constexpr, {} 초기화... 
+
+// C++20 Big4 : Concept, Module(import), Coroutine, Range
+
+
+
+
+
 
 
 
