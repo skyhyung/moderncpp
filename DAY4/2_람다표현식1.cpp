@@ -23,13 +23,14 @@ int main()
 	std::sort(v.begin(), v.end(), f);
 	std::sort(v.begin(), v.end(), std::less<int>() ); // C++98
 	std::sort(v.begin(), v.end(), std::less<int>{} ); // C++11
-	std::sort(v.begin(), v.end(), std::less{}); // C++17 부터 타입생략가능
+	std::sort(v.begin(), v.end(), std::less{}); // C++17 부터 타입생략가능. 위에 3개다 같은 거임
 
 
 	// 방법 4. 람다표현식 사용 - c++11 부터 가능
 	// 람다 표현식
 	// => 익명의 함수를 만드는 문법
 	// [] : 람다가 시작됨을 알리는 기호(lambda introducer)
+	// 상황에 따라 람다가 좋을 수도 있고 less가 좋을 수도 있다.
 	std::sort(v.begin(), v.end(), [](int a, int b) { return a < b; });
 }
 
