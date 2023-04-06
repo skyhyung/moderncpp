@@ -3,7 +3,7 @@
 // auto 와 람다 표현식
 int main()
 {
-	Point pt = Point();
+//	Point pt = Point();
 			// C++98 : 복사 생성자 호출
 			// C++11 : 이동 생성자 호출
 			// => 대부분 컴파일러는 최적화 되어서 임시객체를 만들지 않고
@@ -14,10 +14,18 @@ int main()
 			//			합니다. 
 			//			"mandatory copy ellision" 이라는 문법
 
+
+
 	// 람다 표현식의 결과를 auto 변수에 담아서 함수 처럼 사용 가능합니다.
 	auto f = [](int a, int b) { return a + b; };
-				// class xxx{}; xxx();
+			// class xxx{ operator()(int a, int b){return a + b;}; xxx();
 
 	int n = f(1, 2); // 1 + 2
+
+	// 다음중 에러는 ?
+	auto        f1 = [](int a, int b) { return a + b; };
+	auto&       f2 = [](int a, int b) { return a + b; };
+	const auto& f3 = [](int a, int b) { return a + b; };
+	auto&&      f4 = [](int a, int b) { return a + b; };
 }
 
