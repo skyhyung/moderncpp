@@ -1,13 +1,15 @@
-// 7_°¡º¯ÀÎÀÚÅÛÇÃ¸´1 - 225 page
+// 7_ê°€ë³€ì¸ìí…œí”Œë¦¿1 - 225 page
 
-// °¡º¯ÀÎÀÚ ÇÔ¼ö ÅÛÇÃ¸´
-template<typename ... T> void foo(T ... a) {}
-
-// °¡º¯ÀÎÀÚ Å¬·¡½º ÅÛÇÃ¸´
-template<typename ... T> class xtuple 
+// ê°€ë³€ì¸ì í´ë˜ìŠ¤ í…œí”Œë¦¿
+template<typename ... Types> class tuple 
 {
+	// í•µì‹¬ : Types ì•ˆì— ìˆëŠ” íƒ€ì…ì„ êº¼ë‚´ì„œ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
 };
+
 int main()
 {
-
+	tuple<> t0;
+	tuple<int> t1;
+	tuple<int, double> t2;
+	tuple<int, double, char> t3; // Types : int, double, char
 }
