@@ -1,4 +1,4 @@
-// 3_�κ�Ư��ȭ1 - 156 p
+// 3_부분특수화1 - 156 p
 #include <iostream>
 
 
@@ -6,6 +6,18 @@ template<typename T> class Stack
 {
 public:
 	void push(T a) { std::cout << "T" << std::endl; }
+};
+// template partial specialization(부분 특수화)
+template<typename T> class Stack<T*>
+{
+public:
+	void push(T* a) { std::cout << "T*" << std::endl; }
+};
+// template specialization(특수화)
+template<> class Stack<char*>
+{
+public:
+	void push(char* a) { std::cout << "char*" << std::endl; }
 };
 
 int main()
