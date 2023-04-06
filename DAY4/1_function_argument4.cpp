@@ -6,7 +6,7 @@
 int main()
 {
 	// 아래 코드를 생각해 보세요
-	auto p = std::begin( std::string("hello") );
+	auto p = std::begin( std::string("hello") ); // std::string("hello") 임시객체
 	auto c = *p; // 안전할까요 ? 
 				 // p 가 가리키던 곳이 파괴 되었습니다. 
 				 // 절대 사용하며 안됩니다
