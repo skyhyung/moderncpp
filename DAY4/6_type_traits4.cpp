@@ -18,15 +18,22 @@ template<typename T> struct remove_pointer<T*>
 {
 	using type = T;
 };
-
-
 int main()
 {
 	remove_pointer<int*>::type n1;  // int n1
 }
 
-
-
 template<typename T> void foo(T a)
 {
+	// "T 에서 포인터를 제거한 타입"의 변수 n을 선언해 보세요
+	// 위에서 만든 remove_pointer 사용
+
+	remove_pointer<int*>::type n1; // :: 앞에 T가 없습니다.
+									// dependent name 아닙니다.
+									// typename 필요 없습니다
+
+	typename remove_pointer<T>::type n;
+								// :: 앞에 T가 있습니다.
+								// dependent name 입니다.
+								// typename 필요!!
 }
