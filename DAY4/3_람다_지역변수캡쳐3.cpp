@@ -7,10 +7,10 @@ int main()
 {
 	int v1 = 10, v2 = 10;
 
-	// capture by value : v1, v2 의 복사본 사용
+	// capture by value : v1, v2 의 복사본 사용. 원본이 바뀌어도 복사본은 영향이 없다.
 //	auto f = [v1, v2](int a) { v1 = 100; return a + v1 + v2; }; 
 
-	// capture by reference : v1, v2에 대한 참조를 보관
+	// capture by reference : v1, v2에 대한 참조를 보관. 원본이 바뀌면 v1 or v2 도 바뀐다.
 	auto f = [&v1, &v2](int a) { v1 = 100; return a + v1 + v2; };
 
 	f(0); // v1 = 100 인데.. main 의 v1이 변경됩니다.
