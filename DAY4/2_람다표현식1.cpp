@@ -24,7 +24,9 @@ int main()
 	std::sort(v.begin(), v.end(), std::less<int>() ); // C++98
 	std::sort(v.begin(), v.end(), std::less<int>{} ); // C++11
 	std::sort(v.begin(), v.end(), std::less{});   	  // C++17 부터 타입생략가능. 위에 3개다 같은 거임
-						          //less는 STL 구현을 보면 함수 객체이다 그러므로 inline
+						          // less는 STL 구현을 보면 함수 객체이다 그러므로 inline
+							  // class or struct 내부에 선언된 operator() 함수객체는 
+							  // 자동으로 inline이 된다.
 
 	// 방법 4. 람다표현식 사용 - c++11 부터 가능
 	// 람다 표현식
