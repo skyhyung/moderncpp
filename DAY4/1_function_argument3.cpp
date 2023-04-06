@@ -24,9 +24,9 @@ int main()
 
 	// 그런데.. 아래 2줄을 생각해 보세요
 	f1("to be or not to be");	// string 의 임시객체를 만들게 되고
-								// 메모리를 동적할당해서 문자열 보관
+								// 메모리를 동적할당해서 문자열 보관 -> static 공간(?)에 있는 string을 소유
 								// new 사용
-//	f2("to be or not to be");
+	f2("to be or not to be");	// new 사용하지 않음. static 공간(?)에 있는 string 참조.
 }
 
 
