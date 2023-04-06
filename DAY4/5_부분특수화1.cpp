@@ -1,7 +1,7 @@
 // 3_부분특수화1 - 156 p
 #include <iostream>
 
-
+// primary template
 template<typename T> class Stack
 {
 public:
