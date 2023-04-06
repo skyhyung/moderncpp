@@ -12,13 +12,22 @@ struct People
 int main()
 {
 	std::vector<People> v;
-	v.emplace_back(10); // v.push_back(People(10)) ÀÇ¹Ì.
+	v.emplace_back(10); // v.push_back(People(10)) ì˜ë¯¸.
 	v.emplace_back(20);
 	v.emplace_back(15);
 
-	// ³ªÀÌ°¡ 15»ìÀÎ »ç¶÷À» Ã£°í ½Í´Ù. ?
-	auto ret = std::find(v.begin(), v.end(), ? );
+	// ë‚˜ì´ê°€ 15ì‚´ì¸ ì‚¬ëŒì„ ì°¾ê³  ì‹¶ë‹¤. ?
+	auto ret = std::find_if(v.begin(), v.end(),
+		[](const People& p) { return p.age == 15; });
+
+
+	// ë‚˜ì´ê°€ kì‚´ì¸ ì‚¬ëŒì„ ì°¾ê³  ì‹¶ë‹¤. ?
+	int k = 15;
+	auto ret = std::find_if(v.begin(), v.end(),
+		[k](const People& p) { return p.age == k; });
 }
+
+
 
 
 
