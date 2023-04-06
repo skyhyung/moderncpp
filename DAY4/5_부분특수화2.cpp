@@ -32,6 +32,14 @@ template<> struct Object<int, short>
 	static void foo() { std::cout << "int, short" << std::endl; }
 };
 
+
+template<typename T, typename U, typename V> 
+struct Object<T, Object<U, V>>
+{
+	static void foo() { std::cout << "T, Object<U, V>" << std::endl; }
+};
+
+
 int main()
 {
 	// 아래 처럼 나오게 만들어 보세요.
@@ -40,5 +48,8 @@ int main()
 	Object<int*, double> ::foo();// T*, U
 	Object<int,  int>::foo();    // T, T
 	Object<int, short>::foo();   // int, short
+
+	Object<int, Object<double, char>>::foo();
+								// T, Object<U, V>   나오게 해보세요
 }
 
