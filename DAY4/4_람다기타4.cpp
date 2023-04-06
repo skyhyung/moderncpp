@@ -1,5 +1,11 @@
 #include <iostream>
 
+// 아래 코드에서 
+// => 지역변수를 캡쳐한 람다는 멤버 데이타가 추가 되는데
+// => "helper" 는 static 이므로 멤버 데이타 접근 안됩니다.
+// => 그래서 C++ 문법에서
+//    "캡쳐하지 않은 람다 표현식"만 함수 포인터로 변환 가능합니다.
+
 class CompilerGeneratedName
 {
 public:
@@ -25,7 +31,9 @@ int main()
 	std::cout << f(1, 2) << std::endl;
 
 
-//	int(*f)(int, int) = [](int a, int b) {return a + b; };
+	int v1 = 10;
+
+//	int(*f)(int, int) = [v1](int a, int b) {return a + b + v1; };
 						// class xxx{}; xxx();
 }
 
