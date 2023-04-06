@@ -11,7 +11,7 @@ int main()
 
 
 	// 람다 표현식 여러개를 컨테이너에 보관하려면??
-	// => std::function<int(int, int)> 로 저장할수 밖에 없습니다.
+	// => std::function<int(int, int)> 로 저장할수 밖에 없습니다. =>call by value => inline 치환을 포기
 	std::vector< std::function<int(int, int)>  > v2(10);
 
 	v2[0] = [](int a, int b) { return a + b; };
