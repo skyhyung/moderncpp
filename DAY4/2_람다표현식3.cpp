@@ -23,9 +23,10 @@ int main()
 	int n = f(1, 2); // 1 + 2
 
 	// 다음중 에러는 ?
-	auto        f1 = [](int a, int b) { return a + b; };
-	auto&       f2 = [](int a, int b) { return a + b; };
-	const auto& f3 = [](int a, int b) { return a + b; };
-	auto&&      f4 = [](int a, int b) { return a + b; };
+	auto        f1 = [](int a, int b) { return a + b; }; // ok.. good
+	auto&       f2 = [](int a, int b) { return a + b; }; // error.
+	const auto& f3 = [](int a, int b) { return a + b; }; // ok.
+											// 하지만 f1이 더 좋습니다.
+	auto&&      f4 = [](int a, int b) { return a + b; }; // ok.
 }
 
