@@ -1,12 +1,36 @@
 #include <iostream>
 #include <type_traits>
 
-// ÇöÀç C++Àº "Æ¯Á¤ Å¸ÀÔ" ¿¡ µû¸¥ ÇÔ¼ö ¿À¹ö·ÎµùÀ»
-// Áö¿ø ÇÕ´Ï´Ù.
+// í˜„ìž¬ C++ì€ "íŠ¹ì • íƒ€ìž…" ì— ë”°ë¥¸ í•¨ìˆ˜ ì˜¤ë²„ë¡œë”©ì„
+// ì§€ì› í•©ë‹ˆë‹¤.
 void foo(int)    {}
 void foo(double) {}
 
-// "Å¸ÀÔ"ÀÌ ¾Æ´Ñ "Æ¯Á¤ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â Å¸ÀÔµé"¿¡ µû¸¥ ¿À¹ö·ÎµùÀº ÀÖÀ¸¸é
-// ÁÁÁö ¾ÊÀ»±î¿ä ?
-void goo(°¡»óÇÔ¼ö°¡ÀÖ´ÂÅ¬·¡½ºµé) {}
-void goo(°¡»óÇÔ¼ö°¡¾ø´ÂÅ¬·¡½ºµé) {}
+// "íƒ€ìž…"ì´ ì•„ë‹Œ "íŠ¹ì • ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” íƒ€ìž…ë“¤"ì— ë”°ë¥¸ ì˜¤ë²„ë¡œë”©ì€ ìžˆìœ¼ë©´
+// ì¢‹ì§€ ì•Šì„ê¹Œìš” ?
+//void goo(ê°€ìƒí•¨ìˆ˜ê°€ìžˆëŠ”í´ëž˜ìŠ¤ë“¤) {}
+//void goo(ê°€ìƒí•¨ìˆ˜ê°€ì—†ëŠ”í´ëž˜ìŠ¤ë“¤) {}
+
+template<typename T>
+std::enable_if_t< std::is_polymorphic_v<T> >
+goo(T a)
+{
+	std::cout << "ê°€ìƒí•¨ìˆ˜ê°€ ìžˆëŠ” ê²½ìš°" << std::endl;
+}
+
+template<typename T>
+std::enable_if_t< !std::is_polymorphic_v<T> >
+goo(T a)
+{
+	std::cout << "ê°€ìƒí•¨ìˆ˜ê°€ ì—†ëŠ” ê²½ìš°" << std::endl;
+}
+
+class A { virtual void foo() {} };
+
+int main()
+{
+	int n = 0;
+	A a;
+	foo(n);
+	foo(a);
+}
