@@ -51,4 +51,6 @@ int main()
 	p.set("lee", addr);
 //	p.set(aaa,  addr);
 
+	std::pair<int, double> p2;
+
 }
