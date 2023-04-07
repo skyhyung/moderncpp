@@ -9,16 +9,27 @@
 
 class A {};
 
-class B 
+class B //: public A
 {
+//	A a;
 public:
-	virtual void foo() {}
+//	virtual void foo() {}
 };
+
+// 1. 사용자가 만든 생성자가 없고
+// 2. 객체형 멤버가 없거나, 객체형 멤버의 생성자가 trivial 하고
+// 3. 기반 클래스 없거나, 기반클래스 생성자가 trivial 하고
+// 4. 가상함수가 없을때
+// 생성자는 trivial 합니다.
+// => 객체를 생성해도 실제 생성자 호출은 일어나지 않습니다.
+
 
 int main()
 {
 	// B의 생성자는 trivial 할까요 ?
 	B* p = static_cast<B*>(operator new(sizeof(B))); // 생성자 호출없이 객체 생성
+
+	new(p) B; // 생성자 호출
 
 	p->foo();
 
