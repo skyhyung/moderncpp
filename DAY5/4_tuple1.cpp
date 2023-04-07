@@ -1,9 +1,23 @@
-// 8_tuple1 - 245 page
 #include <tuple>
+#include <iostream>
 
 int main()
 {
-	// pair : ¼­·Î ´Ù¸¥ Å¸ÀÔ 2°³¸¦ º¸°ü - C++98
+	// pair : ì„œë¡œ ë‹¤ë¥¸ íƒ€ì… 2ê°œë¥¼ ë³´ê´€ - C++98
 	std::pair<int, double> p(1, 2.3);
+	
+	std::cout << p.first << std::endl; // 1
+	
+
+	std::pair<int, std::pair<double, char>> p3(10, { 3.4, 'A' });
+
+	std::cout << p3.second.first << std::endl; // 3.4
+
+	//====================
+	// C++11 ë¶€í„° pair ì˜ í™•ì¥ ë²„ì „ì´ tuple ì œê³µ
+	std::tuple<int, double, char, short> t4(1, 3.4, 'A', 2);
+
+	// ìš”ì†Œ ì ‘ê·¼ì€ std::get ì‚¬ìš©
+	std::cout << std::get<0>(t4) << std::endl;
 
 }
