@@ -2,13 +2,26 @@
 
 #include <iostream>
 
-// Fold Expression : °¡º¯ÀÎÀÚ ÅÛÇÃ¸´ÀÇ ¸ðµç ¿ä¼Ò¿¡
-//				ÀÌÇ× ¿¬»êÀ» ¼öÇà - C++17
+// Fold Expression : ê°€ë³€ì¸ìž í…œí”Œë¦¿ì˜ ëª¨ë“  ìš”ì†Œì—
+//				ì´í•­ ì—°ì‚°ì„ ìˆ˜í–‰ - C++17
+// => ë°˜ë“œì‹œ ()ê°€ ìžˆì–´ì•¼ í•©ë‹ˆë‹¤.
 
 template<typename ... Types> 
 int Sum(Types ... args)
 {
+//	int s = (args + ...); // unary right 
+						  // ( E1 + (E2 + (E3 + E4)))
 
+//	int s = (... + args);	// unary left
+							// ((((E1 + E2) + E3) + E4 )
+
+//	int s = (args + ... + 0);	// binary right - ì´ˆê¸°ê°’ ì¶”ê°€ ê°€ëŠ¥
+								// ( E1 + (E2 + (E3 + (E4 + 0)))
+
+	int s = (0 + ... + args);	// binary left
+								// (((( 0 + E1) + E2) + E3) + E4 )
+
+	return s;
 }
 int main()
 {
