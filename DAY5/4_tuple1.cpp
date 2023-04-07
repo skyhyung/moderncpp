@@ -11,6 +11,13 @@ int main()
 
 	std::pair<int, std::pair<double, char>> p3(10, { 3.4, 'A' });
 
-	std::cout << ? << std::endl; // 3.4
+	std::cout << p3.second.first << std::endl; // 3.4
+
+	//====================
+	// C++11 부터 pair 의 확장 버전이 tuple 제공
+	std::tuple<int, double, char, short> t4(1, 3.4, 'A', 2);
+
+	// 요소 접근은 std::get 사용
+	std::cout << std::get<0>(t4) << std::endl;
 
 }
