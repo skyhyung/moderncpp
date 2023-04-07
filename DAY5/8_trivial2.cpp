@@ -4,12 +4,18 @@
 struct Point
 {
 	int x, y;
+
+	Point() = default;
+//	Point(const Point& other) : x(other.x), y(other.y) {}
 };
+// bit-wise copy
+// member-wise copy
+
 
 template<typename T> 
 void copy_type(T* dst, T* src, std::size_t sz)
 {
-	if (std::is_trivially_copyable_v<T>)
+	if constexpr (std::is_trivially_copyable_v<T>)
 	{
 		std::cout << "memcpy 사용" << std::endl;
 		memcpy(dst, src, sizeof(T) * sz);
