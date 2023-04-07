@@ -18,7 +18,7 @@ public:
 int main()
 {
 	// B의 생성자는 trivial 할까요 ?
-	B* p = static_cast<B*>(sizeof(B)); // 생성자 호출없이 객체 생성
+	B* p = static_cast<B*>(operator new(sizeof(B))); // 생성자 호출없이 객체 생성
 
 	p->foo();
 
