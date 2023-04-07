@@ -29,10 +29,9 @@ int main()
 	//	tuple<     double, short> t2;	// 1차 부모, 1번째 요소 보관
 	tuple<int, double, short> t(1, 3.4, 2);	// 0번째 요소 보관
 
+	std::cout << t.value << std::endl; // 1
 
-	std::cout << t.value << std::endl; // ????
+	std::cout << static_cast<tuple<double, short>&>(t).value << std::endl; // 3.4
 
-
-	std::cout << ? << std::endl; // 3.4
-	std::cout << ? << std::endl; // 2
+	std::cout << static_cast<tuple<short>&>(t).value << std::endl; // 2
 }
