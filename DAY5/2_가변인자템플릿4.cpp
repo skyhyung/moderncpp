@@ -8,10 +8,10 @@ template<typename T> void printv(const T& a)
 template<typename ... Types> void foo(Types ... args)
 {
 	// args : 1, 2, 3
-//	printv(args...); // error. printv(1,2,3) 으로 생성됨..
+	// printv(args...);	// error. printv(1,2,3) 으로 생성됨..
 
-//	printv(args)...; // printv(1), printv(2), printv(3) 라는 의도
-					 // error
+	// printv(args)...;	// printv(1), printv(2), printv(3) 라는 의도
+			 	// error
 
 	// Pack Expansion 은 아래의 코드에서만 사용가능합니다.
 	// 1. 함수의 인자 () 안에서
