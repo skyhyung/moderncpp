@@ -25,12 +25,19 @@ int main()
 	// 2. 이미 할당된 메모리에 생성자 호출
 	new(p) Point(1, 2);  // placement new 라고 합니다.
 
+//	std::construct_at(p, 1, 2); // C++20
+
 	// 3. 메모리 해지없이 소멸자만 호출
-	p->~Point();
+//	p->~Point();
+
+	std::destroy_at(p); // C++17 부터 위코드 대신 사용
+
 
 	// 4. 메모리만 해지
 	operator delete(p);
 }
+
+
 
 // malloc : 메모리 할당
 // new    : 객체의 생성(메모리 할당 + 생성자 호출)
