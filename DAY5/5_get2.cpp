@@ -34,4 +34,14 @@ int main()
 	std::cout << static_cast<tuple<double, short>&>(t).value << std::endl; // 3.4
 
 	std::cout << static_cast<tuple<short>&>(t).value << std::endl; // 2
+
+
+	double d = get<1>(t);
+}
+
+template<int N, typename TP>
+튜플TP 타입의 N번째 요소의 타입&
+get(TP & t)
+{
+	return static_cast<N번째기반클래스타입&>(t).value;
 }
