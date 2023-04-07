@@ -1,12 +1,15 @@
-// 7_�����������ø�7
+// 7_가변인자템플릿7
 #include <iostream>
 
 void foo(int a, int b, int& c) { c = 100; }
 
-template<typename F, typename T>
-decltype(auto) chronometry(F f, T&& args)
+// 가변인자 템플릿을 언제 사용하나요 ?
+// => 가변인자 템플릿이 필요한 전형적인 코드가 있습니다.
+
+template<typename F, typename ... Types>
+decltype(auto) chronometry(F f, Types&& ... args)
 {
-	return f( std::forward<T>(arg)); 
+	return f( std::forward<Types>(args)...); 
 }
 
 int main()
