@@ -1,34 +1,34 @@
 #include <iostream>
+#include <tuple>
 
-// 233 page 입니다.
-
-// 1. 1번째 인자는 가변인자가 아닌 이름있는 독립된 인자로 받으세요
-
-void foo() {}
-
-template<typename T, typename ... Types>
-void foo(T value, Types ... args)
+template<typename ... Types> void foo(Types ... args)
 {
-	static int n = 0;
-	++n;
+	// args 에 있는 모든 요소를 꺼내고 싶다면
 
-	std::cout << n << " : " << value << std::endl;
+	// args 안에서 2번째 값을 꺼내고 싶다 => 한번에 하는 방법은 없습니다.
 
-//	foo(args...); // foo(3.4, 'A') => value : 3.4   args : 'A'
-				  // foo('A')      => value : 'A'   args : 
-				  // foo()
-	// C++17 부터는 아래 처럼 하세요
-	if constexpr (sizeof...(args) > 0)
-		foo(args...);
-				  
+	// 아래 3개중에 한개를 사용해야 합니다.
+	// 1. pack expansion 을 사용하거나
+	// 2. recursive 를 사용하거나
+	// 3. fold expression - C++17 
+
+	// Pack Expansion
+	// 1. 요소의 타입이 동일하면 배열에 담아서 사용하세요
+	int x[] = { args... };
+
+
+	// 2. 요소의 타입이 다르면 tuple 에 담아서 사용하세요
+	std::tuple<Types...> t(args...);
+
+	std::cout << std::get<0>(t) << std::endl;
+	std::cout << std::get<1>(t) << std::endl;
+
+
 }
+
 
 int main()
 {
-	foo(1, 3.4, 'A'); 
+	foo(1, 2, 3);
 }
-
-
-
-
 
