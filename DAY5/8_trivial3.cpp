@@ -1,3 +1,10 @@
+
+// github.com/aosp-mirror    "Android Open Source Project"
+
+// platform_system_core   repository 선택
+
+// libutils/include/utils/type_helpers.h 에서 copy_type 찾으세요
+
 #include <iostream>
 #include <type_traits>
 
@@ -20,9 +27,7 @@ copy_type(T* dst, T* src, std::size_t sz)
 }
 
 template<typename T>
-
 std::enable_if_t< !std::is_trivially_copyable<T> >
-
 copy_type(T* dst, T* src, std::size_t sz)
 {
 	std::cout << "복사 생성자 사용" << std::endl;
