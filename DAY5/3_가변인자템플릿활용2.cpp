@@ -51,7 +51,7 @@ template<typename T> void foo(T& t)
 	// 인자의 타입 구하기
 	// T : int(int, double, char)
 	//typename argument<0, T>::type n; // int n
-	typename argument<1, T>::type n; // int n
+	typename argument<1, T>::type n; // double n
 
 	std::cout << typeid(n).name() << std::endl; 
 }
