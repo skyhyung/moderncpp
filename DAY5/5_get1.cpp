@@ -18,7 +18,7 @@ int main()
 	cout << (static_cast<Base>(d)).value << endl;  
 	cout << (static_cast<Base&>(d)).value << endl; 
 		
-	(static_cast<Base>(d)).value = 30;
-	(static_cast<Base&>(d)).value = 30;	
+	(static_cast<Base>(d)).value = 30; // error. 임시객체 생성
+	(static_cast<Base&>(d)).value = 30;// ok	
 
 }
