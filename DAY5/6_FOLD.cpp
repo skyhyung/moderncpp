@@ -9,17 +9,17 @@
 template<typename ... Types> 
 int Sum(Types ... args)
 {
-//	int s = (args + ...); // unary right 
-						  // ( E1 + (E2 + (E3 + E4)))
+        //int s = (args + ...);         // unary right 
+					// ( E1 + (E2 + (E3 + E4)))
 
-//	int s = (... + args);	// unary left
-							// ((((E1 + E2) + E3) + E4 )
+        //int s = (... + args);	        // unary left
+					// ((((E1 + E2) + E3) + E4 )
 
-//	int s = (args + ... + 0);	// binary right - 초기값 추가 가능
-								// ( E1 + (E2 + (E3 + (E4 + 0)))
+        //int s = (args + ... + 0);     // binary right - 초기값 추가 가능
+					// ( E1 + (E2 + (E3 + (E4 + 0)))
 
 	int s = (0 + ... + args);	// binary left
-								// (((( 0 + E1) + E2) + E3) + E4 )
+					// (((( 0 + E1) + E2) + E3) + E4 )
 
 	return s;
 }
@@ -28,6 +28,3 @@ int main()
 	int n = Sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 	std::cout << n << std::endl;
 }
-
-
-
